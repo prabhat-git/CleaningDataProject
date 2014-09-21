@@ -8,6 +8,7 @@ This data set was created as part of student project for
 
 The dataset provided here is an adapted version of "Human Activity Recognition Using Smartphones Dataset".
 The original dataset and its description including README.txt can be found at the following location:
+ https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip
  
 In the original dataset, data from 30 individuals is randomly partitioned into two sets 'train' and 'test'.
 and placed in directories with the same names. . Each directory contains the following three files :
