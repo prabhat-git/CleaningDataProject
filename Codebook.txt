@@ -1,0 +1,41 @@
+==================================================================
+Human Activity Recognition Using Smartphones Dataset (Adapted)
+Version 1.0
+==================================================================
+This data set was created as part of student project for
+'Gathering and Cleaning Data' offered by Coursera.
+==================================================================
+
+The dataset provided here is an adapted version of "Human Activity Recognition Using Smartphones Dataset".
+The original dataset and its description including README.txt can be found at the following location:
+ 
+In the original dataset, data from 30 individuals is randomly partitioned into two sets 'train' and 'test'.
+and placed in directories with the same names. . Each directory contains the following three files :
+1. subject_test.txt/subject_train.txt - Individual subject involved in a particular observation (single column dataset).
+2. y_test.txt/y_train.txt - Activity involved in a particular observation (single column dataset).
+3. X_test.txt/X_train.txt - Preprocessed sensor signals data (from accelerometer and gyroscope) for a particular observation.
+   (561 column dataset).
+   
+The current dataset tries to consolidate and summarize important information scattered over several files to
+a single file, activity_measure_mean.txt. Following transformations are performed to the original dataset
+to achieve this.
+
+1.  The 'test' and 'train' datasets are merged into a single datasets. The rows from the datasets of each of
+    the three sets of files, as mentioned above, are combined.
+2. The single column in file y.txt (created from merger of y_test.txt and y_train.txt) is named 'activity' and the
+   column data is changed from activity code to actual activity name (e.g., STANDING, WALKING_UPSTAIRS etc.).
+   The modified data is saved in file activity.txt.
+3. X.txt (resultant file from merger of X_test.txt and X_train.txt) is subsetted to select only those columns
+   that contains mean() or std() information. The file feature.txt in the original dataset contains features (names)
+   of the data from the sensors. Information from this dataset is used to select the columns in X.txt.
+4. Information from feature.txt file is also used to give descriptive names to the columns of X.txt.
+   Modified X.txt file is saved in file activity_measurements.txt.
+5. Subject column from subject.txt, activity column from activity.txt are added as first and the second column to
+   data in activity_measurements.txt. 
+6. gather() function from tidyr package is used to gather feature names in key value pair.
+7. aggregate() function is used to get the average of each feature for each activity for each subject. The result
+   of this transformation is saved in activity_measure_mean.txt.
+   
+The dataset in activity_measure_mean.txt has 11880 rows and 4 columns. 
+The 4 columns correspond to subject, activity, feature and mean value (of the measurement).
+11880 rows corresponds to 30 subject each performing 6 activities and having 66 measurement points.
